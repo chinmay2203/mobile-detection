@@ -58,7 +58,7 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/face_model.tflite  # <--- Navin naav asse lihila
+    - assets/face_model.tflite 
 
   # To add assets to your application, add an assets section, like this:
   # assets:

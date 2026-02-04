@@ -27,7 +27,7 @@ class FaceApp extends StatefulWidget {
 class _FaceAppState extends State<FaceApp> {
   CameraController? controller;
   Interpreter? interpreter;
-  int _cameraIndex = 0; // Camera index track karnyasathi
+  int _cameraIndex = 0; 
   
   final FaceDetector _faceDetector = FaceDetector(
     options: FaceDetectorOptions(
@@ -41,7 +41,7 @@ class _FaceAppState extends State<FaceApp> {
   @override
   void initState() {
     super.initState();
-    // Default front camera shodha, nasel tar pahila camera ghya
+
     _cameraIndex = _cameras.indexWhere((c) => c.lensDirection == CameraLensDirection.front);
     if (_cameraIndex == -1) _cameraIndex = 0;
     
@@ -69,7 +69,7 @@ class _FaceAppState extends State<FaceApp> {
     }
   }
 
-  // Camera switch karnyache function
+
   void toggleCamera() {
     if (_cameras.length < 2) return;
     _cameraIndex = (_cameraIndex + 1) % _cameras.length;
@@ -102,10 +102,10 @@ class _FaceAppState extends State<FaceApp> {
       img.Image? original = img.decodeImage(bytes);
       if (original == null) return;
 
-      // Check kara ki camera front aahe ki back
+
       bool isFront = _cameras[_cameraIndex].lensDirection == CameraLensDirection.front;
       
-      // Front camera sathi 270 degree rotation lagte, back sathi garaj naste
+
       img.Image processedImg = isFront ? img.copyRotate(original, angle: 270) : original;
 
       final face = faces.first;
